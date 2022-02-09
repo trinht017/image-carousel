@@ -17,9 +17,15 @@ const moveToSlide = (currentSlide, targetSlide) => {
 
     const currentSlideDescription = currentSlide.querySelector('.carousel__slide-description');
     const targetSlideDescription = targetSlide.querySelector('.carousel__slide-description');
-    
+
     currentSlideDescription.classList.remove('display');
     targetSlideDescription.classList.add('display');
+
+    const currentSlideLink = currentSlide.querySelector('.carousel__slide-link');
+    const targetSlideLink = targetSlide.querySelector('.carousel__slide-link');
+
+    currentSlideLink.classList.remove('display');
+    targetSlideLink.classList.add('display');
 }
 
 //update the navigation buttons when slide moves
@@ -70,7 +76,7 @@ navTrack.addEventListener('click', (e) => {
 })
 
 //time between slides - auto play - in ms
-const intervalTime = 4000;
+const intervalTime = 1000000;
 let intervalId;
 
 const repeater = () => {
