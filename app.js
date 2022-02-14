@@ -70,13 +70,14 @@ navTrack.addEventListener('click', (e) => {
     const currentDot = navTrack.querySelector('.carousel__nav-button.active__slide');
     const targetIndex = navArray.findIndex(dot => dot === targetDot);
     const targetSlide = slideArray[targetIndex];
-
+    
     moveToSlide(currentSlide, targetSlide);
     updateNav(currentDot, targetDot);
+    clearInterval(intervalId);
 })
 
 //time between slides - auto play - in ms
-const intervalTime = 1000000;
+const intervalTime = 4000;
 let intervalId;
 
 const repeater = () => {
@@ -85,7 +86,15 @@ const repeater = () => {
     }, intervalTime);
 }
 
+// const resetTimer = () => {
+//     clearInterval(intervalId);
+//     setTimeout( () => {
+//         repeater();
+//     }, 10000);
+// }
+
 repeater();
+
 
 //When I put my mouse over carousel, don't auto play slides
 //When I put my mouse over carousel, display Arrows
@@ -102,3 +111,7 @@ carousel.addEventListener('mouseout', () => {
     nextButton.classList.remove('display');
     prevButton.classList.remove('display');
 });
+
+
+
+
